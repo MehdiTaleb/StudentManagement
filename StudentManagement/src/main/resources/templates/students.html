@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des étudiants</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Liste des étudiants</h1>
+
+<a href="/addStudent">Ajouter un étudiant</a>
+
+<br><br>
+
+<table>
+
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Ville</th>
+        <th>Moyenne</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr th:each="student : ${students}">
+
+        <td th:text="${student.id}"></td>
+
+        <td th:text="${student.name}"></td>
+
+        <td th:text="${student.email}"></td>
+
+        <td th:text="${student.city}"></td>
+
+        <td th:text="${student.average}"></td>
+
+        <td>
+            <a th:href="@{/deleteStudent(id=${student.id})}">
+                Supprimer
+            </a>
+        </td>
+
+    </tr>
+
+    </tbody>
+
+</table>
+
+</body>
+</html>
