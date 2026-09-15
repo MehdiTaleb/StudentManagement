@@ -14,24 +14,4 @@ public class StudentManagementApplication {
         SpringApplication.run(StudentManagementApplication.class, args);
     }
 
-    /*@Bean
-    CommandLineRunner commandLineRunner(StudentRepository productRepository){
-        return args -> {
-            productRepository.save(Student.builder()
-                    .name("Computer")
-                    .price(450.00)
-                    .quantity(55.00)
-                    .build());
-            productRepository.save(Student.builder()
-                    .name("Smart Phone")
-                    .price(250.00)
-                    .quantity(25.00)
-                    .build());
-            productRepository.save(Student.builder()
-                    .name("tele")
-                    .price(480.00)
-                    .quantity(5.00)
-                    .build());
-        };
-    }*/
 }

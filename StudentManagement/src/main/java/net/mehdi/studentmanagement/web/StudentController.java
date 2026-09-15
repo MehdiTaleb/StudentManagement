@@ -2,6 +2,7 @@ package net.mehdi.studentmanagement.web;
 
 import net.mehdi.studentmanagement.entities.Student;
 import net.mehdi.studentmanagement.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ public class StudentController {
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
+
 
     @GetMapping("/students")
     public String students(Model model) {
