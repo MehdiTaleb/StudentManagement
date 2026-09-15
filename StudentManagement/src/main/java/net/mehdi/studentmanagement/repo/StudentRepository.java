@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
-    List<Student> findByNameContains(String keyword);
+    List<Student> findByNameContainsIgnoreCase(String keyword);
 
 }

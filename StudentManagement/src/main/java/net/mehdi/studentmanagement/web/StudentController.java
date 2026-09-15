@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class StudentController {
 
@@ -20,12 +22,20 @@ public class StudentController {
 
 
     @GetMapping("/students")
-    public String students(Model model) {
+    public String students(
+            @RequestParam(required = false) String keyword,
+            Model model) {
 
-        model.addAttribute(
-                "students",
-                studentService.getAllStudents()
-        );
+        List<Student> students;
+
+        if (keyword != null && !keyword.trim().isEmpty()) {
+            students = studentService.searchStudents(keyword);
+        } else {
+            students = studentService.getAllStudents();
+        }
+
+        model.addAttribute("students", students);
+        model.addAttribute("keyword", keyword);
 
         return "students";
     }
